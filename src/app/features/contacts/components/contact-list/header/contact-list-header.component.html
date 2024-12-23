@@ -1,0 +1,17 @@
+<header class="flex flex-row justify-between">
+  <div class="flex flex-row gap-2">
+    <input [(ngModel)]="searchTerm" (ngModelChange)="handleSearchTermChange()" type="search" class="input input-sm" placeholder="Search"/>
+    <button class="btn-circle btn-sm btn-neutral" routerLinkActive="router-link-active" (click)="handleSearch()"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></button>
+  </div>
+
+  <div class="flex flex-row gap-4 items-center">
+    @if (showDelete) {
+      <button (click)="handleDeleteAll()" class="btn-circle btn-sm btn-danger" aria-label="Delete Selected Contacts" title="Delete selected contacts">
+        <fa-icon [icon]="faTrash" aria-hidden="true"></fa-icon>
+      </button>
+    }
+    <a class="btn-circle btn-sm btn-primary" [routerLink]="['/contacts/add']" aria-label="Add Contact" title="Add Contact">
+      <fa-icon [icon]="faPlus" aria-hidden="true"></fa-icon>
+    </a>
+  </div>
+</header>

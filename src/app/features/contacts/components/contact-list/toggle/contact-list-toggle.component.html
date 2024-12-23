@@ -1,0 +1,9 @@
+<div class="flex flex-row gap-1 items-center">
+  <button class="btn-squircle btn-xs" [ngClass]="layout==='list' ? 'btn-primary' : 'btn-neutral'" (click)="setLayout('list')">
+    <fa-icon [icon]="faList"></fa-icon>
+  </button>
+  
+  <button class="btn-squircle btn-xs" [ngClass]="layout==='grid' ? 'btn-primary' : 'btn-neutral'" (click)="setLayout('grid')">
+    <fa-icon [icon]="faGrid"></fa-icon>
+  </button>
+</div>

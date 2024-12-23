@@ -1,0 +1,14 @@
+@import 'src/app/shared/styles/buttons.scss';
+@import 'src/app/shared/styles/inputs.scss';
+
+section {
+  @apply rounded-lg pt-1 pb-2;
+
+  legend {
+    @apply text-xs;
+  }
+
+  label {
+    @apply flex flex-col flex-1;
+  }
+}

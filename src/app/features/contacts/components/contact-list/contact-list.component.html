@@ -1,0 +1,7 @@
+<article class="px-3 py-3 rounded-xl w-full flex flex-col gap-5">
+  <app-contact-list-header [showDelete]="selectedContactIds.size > 0" (onSearch)="filterContacts($event)" (onDeleteAll)="deleteSelectedContacts()"></app-contact-list-header>
+
+  <app-contact-list-body [contacts]="contacts$ | async" (onDelete)="deleteContact($event)" (onSelection)="handleContactSelection($event)"></app-contact-list-body>
+  
+  <footer></footer>
+</article>

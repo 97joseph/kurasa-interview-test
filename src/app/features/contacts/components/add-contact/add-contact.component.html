@@ -1,0 +1,7 @@
+<article class="px-3 py-3 rounded-xl w-full flex flex-col gap-5">
+  <app-contact-view-header title="Add Contact"></app-contact-view-header>
+  
+  <section class="flex flex-col gap-1 panel-primary rounded-lg">
+    <app-contact-form [isSubmitting]="isSubmitting" (onSubmit)="addContact($event)"></app-contact-form>
+  </section>
+</article>

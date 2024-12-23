@@ -1,0 +1,76 @@
+<form [formGroup]="form" (ngSubmit)="handleSubmit()" class="overflow-hidden flex flex-col gap-5">
+  <section class="grid grid-cols-2 gap-4">
+
+    <label for="contact-first-name">
+      <span class="txt-secondary text-sm">First Name *
+        @if (controlHasError('firstName', 'required')) {
+          <span class="txt-danger text-xs">
+            is required
+          </span>
+        }
+      </span>
+      <input formControlName="firstName" id="contact-first-name" type="text" class="input" placeholder="John"
+        [ngClass]="getControlClass('firstName')" />
+    </label>
+
+    <label for="contact-last-name">
+      <span class="txt-secondary text-sm">Last Name *
+        @if (controlHasError('lastName', 'required')) {
+          <span class="txt-danger text-xs">
+            is required
+          </span>
+        }
+      </span>
+      <input formControlName="lastName" id="contact-last-name" type="text" class="input" placeholder="Doe" [ngClass]="getControlClass('lastName')" />
+    </label>
+  </section>
+
+  <section class="flex flex-col gap-3">
+
+    <label>
+      <span class="txt-secondary text-sm">Phone *
+        @if (controlHasError('phone', 'required')) {
+          <span class="txt-danger text-xs">
+            is required
+          </span>
+        }
+        @else if (controlHasError('phone', 'invalidPhoneNumber')) {
+          <span class="txt-danger text-xs">
+            is invalid
+          </span>
+        }
+      </span>
+
+      <input formControlName="phone" class="input" type="tel" placeholder="0700000000" [ngClass]="getControlClass('phone')" />
+    </label>
+
+    <label>
+      <span class="txt-secondary text-sm">Email
+
+        @if (controlHasError('email', 'email')) {
+          <span class="txt-danger text-xs">
+            format is invalid
+          </span>
+        }
+      </span>
+      <input formControlName="email" class="input" type="email" placeholder="johndoe@example.com" [ngClass]="getControlClass('email')" />
+    </label>
+
+    <label>
+      <span class="txt-secondary text-sm">Physical Address</span>
+      <input formControlName="address" class="input" type="text" placeholder="1234 City, Country" [ngClass]="getControlClass('address')" />
+    </label>
+  </section>
+
+  <section class="flex flex-col">
+
+    <label>
+      <span class="txt-secondary txt-sm">Group</span>
+      <input formControlName="group" class="input" type="text" placeholder="Family" [ngClass]="getControlClass('group')" />
+    </label>
+  </section>
+
+  <footer class="flex flex-row justify-end items-center">
+    <button class="btn btn-primary btn-lg" [disabled]="form.invalid || !form.dirty || isSubmitting">Save</button>
+  </footer>
+</form>

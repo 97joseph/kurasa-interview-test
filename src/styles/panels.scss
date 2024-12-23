@@ -1,0 +1,9 @@
+@import './mixins';
+
+.panel-primary {
+  @include panelPrimary;
+}
+
+.panel-secondary {
+  @include panelSecondary;
+}
